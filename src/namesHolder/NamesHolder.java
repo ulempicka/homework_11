@@ -12,24 +12,26 @@ public class NamesHolder {
     void add(String name, int index) {
         if (name == null) {
             throw new NullPointerException("Imie nie moze byc null!");
-        }else if(index >= size()){
+        }
+        if (index >= size()) {
             throw new ArrayIndexOutOfBoundsException("W tablicy nie ma tyle miejsca!");     //kontrolowany lub nie
         }
-//        else if (names[index].equalsIgnoreCase(name)){
-//            throw new IllegalArgumentException("Zduplikowane imie!");
-//        }
-        else {
-            names[index] = name;
+ //       for (int i=0; i < size(); i++) {
+            if (names[index].contains(name)) {
+                throw new IllegalArgumentException("Zduplikowane imie!");
+//            }
         }
+        names[index] = name;
     }
 
-    boolean contains(String name) {
-        for (String s : names) {
+     boolean contains(String name) {
+        if (name == null) {
+            throw new IllegalArgumentException("Imie nie moze byc null!");
+        }
 
-            if (name == null) {
-                throw new IllegalArgumentException("Imie nie moze byc null!");
-            } else {
-                return s.equalsIgnoreCase(name);
+        for (String s : names) {
+            if (s.equalsIgnoreCase(name)) {
+                return true;
             }
         }
         return false;

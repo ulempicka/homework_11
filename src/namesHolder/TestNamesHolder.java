@@ -2,7 +2,7 @@ package namesHolder;
 
 public class TestNamesHolder {
     public static void main(String[] args) {
-        //String[] names = new String[3];
+
         NamesHolder namesHolder = new NamesHolder(3);
 
         try{
